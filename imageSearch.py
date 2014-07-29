@@ -19,7 +19,7 @@ class Errors(object):
         print message
         self.file.write(message)
 
-def getImagesForTerm(searchTerm, numberOfImages):
+def getImagesForTerm(searchTerm):
     # Replace spaces ' ' in search term for '%20' in order to comply with request
 
 
@@ -29,12 +29,11 @@ def getImagesForTerm(searchTerm, numberOfImages):
     myopener = MyOpener()
 
     # remove non letters and numbers
-    searchTerm = re.sub(r'\W|_', ' ', searchTerm) #searchTerm.replace(' ','%20')
+    # searchTerm = re.sub(r'\W|_', ' ', searchTerm) #searchTerm.replace(' ','%20')
 
     webSearchTerm = searchTerm.replace(' ','%20')
-    print webSearchTerm
     # Notice that the start changes for each iteration in order to request a new set of images for each loop
-    url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+webSearchTerm+'&start='+str(numberOfImages)+'&userip=MyIP')
+    url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+webSearchTerm+'&start='+str(0)+'&userip=MyIP')
     # print url
     request = urllib2.Request(url, None, {'Referer': 'testing'})
     response = urllib2.urlopen(request)
@@ -45,17 +44,27 @@ def getImagesForTerm(searchTerm, numberOfImages):
     dataInfo = data['results']
 
     #just nameing the file the same as the search term
-    saveFileName = searchTerm.replace(" ","_")
-    saveFileName = saveFileName.replace("__","_")
-    saveFileName = saveFileName.strip("_")
+    # saveFileName = searchTerm.replace(" ","_")
+    # saveFileName = saveFileName.replace("__","_")
+    # saveFileName = saveFileName.strip("_")
 
-    if len(dataInfo) >= numberOfImages:
-        for i in range(numberOfImages):
-            #todo - add photos to folder
-            #TODO - error handleing for if filename already exist - just overwrites at moment
-            myopener.retrieve(dataInfo[i]['unescapedUrl'], "photos/"+saveFileName+'.jpg')
+    # print(dataInfo)
+
+    #todo - add photos to folder
+    #TODO - error handleing for if filename already exist - just overwrites at moment
+    savedImage = False # todo improve this
+    if len(dataInfo) >= 1:
+        for image in dataInfo:
+            height = image["height"]
+            width = image["width"]
+            if 300 < int(height) < 700 and 300 < int(width) < 700:
+                myopener.retrieve(image['unescapedUrl'], "photos/"+searchTerm+'.jpg')
+                savedImage = True
+                break
+        else:
+            error.log("No Valid Sizes for Query: "+searchTerm+". Height: "+str(height)+" Width: "+str(width))
     else:
-        error.log("No Results for Query: "+saveFileName)
+        error.log("No Results for Query: "+searchTerm)
 
 
         # Sleep for one second to prevent IP blocking from Google
@@ -70,7 +79,7 @@ def getQueries(path):
 error = Errors()
 
 for query in getQueries("wineNames.txt"): 
-    getImagesForTerm(query, 1)
+    getImagesForTerm(query)
 
 # getImagesForTerm("10293020idlfsdjfl34", 1)
 
