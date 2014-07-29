@@ -6,6 +6,20 @@ import urllib2
 import simplejson
 import re
 
+#todo add controller for log file
+class Errors(object):
+    """A way to log errors to the system"""
+    def __init__(self):
+        self.file = open("errors.txt","w")
+    def close(self):
+        self.file.close()
+    def log(self, message):
+        print message
+        self.file.write(message)
+
+        
+        
+
 def getImagesForTerm(searchTerm, numberOfImages):
     # Replace spaces ' ' in search term for '%20' in order to comply with request
 
@@ -33,10 +47,14 @@ def getImagesForTerm(searchTerm, numberOfImages):
 
     #just nameing the file the same as the search term
     # myopener.retrieve(dataInfo[0]['unescapedUrl'],str(count)+'.jpg')
-    for i in range(numberOfImages):
-        #todo - add photos to folder
-        #TODO - error handleing for if filename already exist - just overwrites at moment
-        myopener.retrieve(dataInfo[i]['unescapedUrl'], "photos/"+searchTerm.replace(" ","_")+'.jpg')
+    saveFileName = searchTerm.replace(" ","_")
+    if len(dataInfo) >= numberOfImages:
+        for i in range(numberOfImages):
+            #todo - add photos to folder
+            #TODO - error handleing for if filename already exist - just overwrites at moment
+            myopener.retrieve(dataInfo[i]['unescapedUrl'], "photos/"+saveFileName+'.jpg')
+    else:
+        error.log("No Results for Query: "+saveFileName)
 
 
         # Sleep for one second to prevent IP blocking from Google
@@ -48,6 +66,11 @@ def getQueries(path):
     textFile.close()
     return queries
 
+error = Errors()
 
-for query in getQueries("wineNames.txt"): 
-    getImagesForTerm(query, 1)
+# for query in getQueries("wineNames.txt"): 
+#     getImagesForTerm(query, 1)
+
+getImagesForTerm("10293020idlfsdjfl34", 1)
+
+error.close()
