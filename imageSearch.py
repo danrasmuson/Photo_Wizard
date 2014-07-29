@@ -6,6 +6,8 @@ import urllib2
 import simplejson
 import re
 
+#todo add support for dimensions
+#todo add support for refreshing image or choosing image
 #todo add controller for log file
 class Errors(object):
     """A way to log errors to the system"""
@@ -46,8 +48,10 @@ def getImagesForTerm(searchTerm, numberOfImages):
     dataInfo = data['results']
 
     #just nameing the file the same as the search term
-    # myopener.retrieve(dataInfo[0]['unescapedUrl'],str(count)+'.jpg')
     saveFileName = searchTerm.replace(" ","_")
+    saveFileName = searchTerm.replace("__","_")
+    saveFileName = searchTerm.strip("_")
+
     if len(dataInfo) >= numberOfImages:
         for i in range(numberOfImages):
             #todo - add photos to folder
@@ -68,9 +72,9 @@ def getQueries(path):
 
 error = Errors()
 
-# for query in getQueries("wineNames.txt"): 
-#     getImagesForTerm(query, 1)
+for query in getQueries("wineNames.txt"): 
+    getImagesForTerm(query, 1)
 
-getImagesForTerm("10293020idlfsdjfl34", 1)
+# getImagesForTerm("10293020idlfsdjfl34", 1)
 
 error.close()
