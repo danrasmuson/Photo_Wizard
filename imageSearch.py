@@ -19,9 +19,6 @@ class Errors(object):
         print message
         self.file.write(message)
 
-        
-        
-
 def getImagesForTerm(searchTerm, numberOfImages):
     # Replace spaces ' ' in search term for '%20' in order to comply with request
 
@@ -49,8 +46,8 @@ def getImagesForTerm(searchTerm, numberOfImages):
 
     #just nameing the file the same as the search term
     saveFileName = searchTerm.replace(" ","_")
-    saveFileName = searchTerm.replace("__","_")
-    saveFileName = searchTerm.strip("_")
+    saveFileName = saveFileName.replace("__","_")
+    saveFileName = saveFileName.strip("_")
 
     if len(dataInfo) >= numberOfImages:
         for i in range(numberOfImages):
