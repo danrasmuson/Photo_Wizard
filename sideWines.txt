@@ -1,34 +1,30 @@
 group:HEIRLOOM Ports & Sweet wines
-Inniskillin Icewine Cabernet Franc, Canada...20
-Samos Vin Doux Naturale Muscat, Greece...10
-Royal Tokaji-Aszu 5 Puttonyos, Hungary...16
-Blandy’s 10 Year Old Malmsey, Madeira Island...10
-Ramos Pinto Quinta de Ervamoira 10 yr. Tawny, Portugal...12
-Ramos Pinto Quinta do Bom-Retiro 20 yr. Tawny, Portugal...18
-Ramos Pinto 30 yr. Tawny, Portugal...26
-Ramos Pinto Vintage Porto 2003, Portugal...26
+Inniskillin Icewine Cabernet Franc, Canada 20.
+Samos Vin Doux Naturale Muscat, Greece 10.
+Royal Tokaji-Aszu 5 Puttonyos, Hungary 16.
+Blandy’s 10 Year Old Malmsey, Madeira Island 10.
+Ramos Pinto Quinta de Ervamoira 10 yr. Tawny, Portugal 12.
+Ramos Pinto Quinta do Bom-Retiro 20 yr. Tawny, Portugal 18.
+Ramos Pinto 30 yr. Tawny, Portugal 26.
+Ramos Pinto Vintage Porto 2003, Portugal 26.
 
 group:HEIRLOOM brandy
-Calvados, Domaine Dupont...12
-Courvoisier, vsop...15
-Remy Martin, vsop...18
-Hennessy xo...30
-Remy Martin xo...30
-Tariquet, Bas-Armagnac...16
+Calvados, Domaine Dupont 12.
+Courvoisier, vsop 15.
+Remy Martin, vsop 18.
+Hennessy xo 30.
+Remy Martin xo 30.
+Tariquet, Bas-Armagnac 16.
 
 group:Aperitivi digestivi 
-Campari...9
-Punt e Mes...10
-Aperol...9
-Carpano Antica...12
-St. George Absynthe Vert...15
-Amaro Averna...9
-Molinari Limoncello...9
-Dimmi liquore di Milano...10
-Sustainably Produced Wines
-Yale Alumni Wine Maker
-Menus May Change Based on
-Market Availability
+Campari 9.
+Punt e Mes 10.
+Aperol 9.
+Carpano Antica 12.
+St. George Absynthe Vert 15.
+Amaro Averna 9.
+Molinari Limoncello 9.
+Dimmi liquore di Milano 10.
 
 group:HEIRLOOM cocktails
 shISO grand Muddled Strawberries, Titos American Vodka, Grand Marnier, Mint & Hibiscus 12.
