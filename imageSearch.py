@@ -20,17 +20,16 @@ class Errors(object):
         self.file.write(message)
 
 def getImagesForTerm(searchTerm):
-    # Replace spaces ' ' in search term for '%20' in order to comply with request
-
+    # print searchTerm
+    searchTerm = re.sub(r'\W|_', ' ', searchTerm) #searchTerm.replace(' ','%20')
+    # print searchTerm
 
     # Start FancyURLopener with defined version 
     class MyOpener(FancyURLopener): 
         version = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; it; rv:1.8.1.11) Gecko/20071127 Firefox/2.0.0.11'
     myopener = MyOpener()
 
-    # remove non letters and numbers
-    # searchTerm = re.sub(r'\W|_', ' ', searchTerm) #searchTerm.replace(' ','%20')
-
+    # Replace spaces ' ' in search term for '%20' in order to comply with request
     webSearchTerm = searchTerm.replace(' ','%20')
     # Notice that the start changes for each iteration in order to request a new set of images for each loop
     url = ('https://ajax.googleapis.com/ajax/services/search/images?' + 'v=1.0&q='+webSearchTerm+'&start='+str(0)+'&userip=MyIP')
@@ -52,14 +51,12 @@ def getImagesForTerm(searchTerm):
 
     #todo - add photos to folder
     #TODO - error handleing for if filename already exist - just overwrites at moment
-    savedImage = False # todo improve this
     if len(dataInfo) >= 1:
         for image in dataInfo:
             height = image["height"]
             width = image["width"]
-            if 300 < int(height) < 700 and 300 < int(width) < 700:
+            if 300 < int(height) and 300 < int(width):
                 myopener.retrieve(image['unescapedUrl'], "photos/"+searchTerm+'.jpg')
-                savedImage = True
                 break
         else:
             error.log("No Valid Sizes for Query: "+searchTerm+". Height: "+str(height)+" Width: "+str(width))
