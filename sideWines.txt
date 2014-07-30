@@ -1,0 +1,41 @@
+group:HEIRLOOM Ports & Sweet wines
+Inniskillin Icewine Cabernet Franc, Canada...20
+Samos Vin Doux Naturale Muscat, Greece...10
+Royal Tokaji-Aszu 5 Puttonyos, Hungary...16
+Blandy’s 10 Year Old Malmsey, Madeira Island...10
+Ramos Pinto Quinta de Ervamoira 10 yr. Tawny, Portugal...12
+Ramos Pinto Quinta do Bom-Retiro 20 yr. Tawny, Portugal...18
+Ramos Pinto 30 yr. Tawny, Portugal...26
+Ramos Pinto Vintage Porto 2003, Portugal...26
+
+group:HEIRLOOM brandy
+Calvados, Domaine Dupont...12
+Courvoisier, vsop...15
+Remy Martin, vsop...18
+Hennessy xo...30
+Remy Martin xo...30
+Tariquet, Bas-Armagnac...16
+
+group:Aperitivi digestivi 
+Campari...9
+Punt e Mes...10
+Aperol...9
+Carpano Antica...12
+St. George Absynthe Vert...15
+Amaro Averna...9
+Molinari Limoncello...9
+Dimmi liquore di Milano...10
+Sustainably Produced Wines
+Yale Alumni Wine Maker
+Menus May Change Based on
+Market Availability
+
+group:HEIRLOOM cocktails
+shISO grand Muddled Strawberries, Titos American Vodka, Grand Marnier, Mint & Hibiscus 12.
+Moonshine lemonade Onyx CT Moonshine, Amaretto, Cranberry, Fresh Lemon & Cane Sugar 11.
+jack and the beanstalk Plymouth Gin, Jack Rudy Artisan Tonic, Aperol & Fresh Grapefruit 12.
+Bitter Redhead Templeton Rye, CT Maple Syrup, Punt y Mes, Fresh Lemon & Soda 11.
+Boat in the backyard Carlsberg Pilsner, Willet Bourbon, Ginger Beer, Fresh Lemon & Orange Bitters 12.
+suave agave Jalapeño Tequila, Combier, Fresh Lime & Orange Juice, Agave Nectar, Cilantro Salted Rim 12.
+cÉlibataire willet Bourbon, Combier, Aperol, Lemon Juice, grapefruit Juice, GingerBeer 12.
+chapel merchant sour michters Rye’ Fresh Lemon Juice, Agave nectar, Floating of Malbec 12.
