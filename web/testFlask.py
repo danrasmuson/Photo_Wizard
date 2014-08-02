@@ -1,6 +1,7 @@
 # for the full tutorial visit this site
 # http://flask.pocoo.org/docs/quickstart
 from flask import Flask, url_for, request, jsonify
+from imageSearch import getImageForTerm
 app = Flask(__name__)
 
 @app.route('/')
@@ -28,7 +29,8 @@ def login():
     if request.method == 'POST':
         # request.args.get('key', '')
         # return request.form["hello"]
-        return request.get_json(force=True)["query"]
+        data = request.get_json(force=True) 
+        return getImageForTerm(data['query'])
     else:
         # show_the_login_form()
         return "you sent a get"

@@ -5,12 +5,12 @@ from urllib import FancyURLopener
 import urllib2
 import simplejson
 import re
-from Errors import Errors
+# from Errors import Errors
 #todo add support for dimensions
 #todo add support for refreshing image or choosing image
 #todo add controller for log file
 
-def getImageForTerm(searchTerm):
+def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
     # print searchTerm
     searchTerm = re.sub(r'\W|_', ' ', searchTerm) #searchTerm.replace(' ','%20')
     # print searchTerm
@@ -39,9 +39,10 @@ def getImageForTerm(searchTerm):
         for image in dataInfo:
             height = image["height"]
             width = image["width"]
-            if 300 < int(height) and 300 < int(width):
-                myopener.retrieve(image['unescapedUrl'], "photos/"+searchTerm+'.jpg')
-                break
+            if minHeight < int(height) and minWidth < int(width):
+                savePath = os.getcwd()+"\\photos\\"+searchTerm+'.jpg'
+                myopener.retrieve(image['unescapedUrl'], savePath)
+                return savePath
         # else:
             # error.log("No Valid Sizes for Query: "+searchTerm+". Height: "+str(height)+" Width: "+str(width))
     # else:
