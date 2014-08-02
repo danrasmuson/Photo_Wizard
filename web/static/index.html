@@ -2,6 +2,7 @@
 <html ng-app="app">
   <head>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
     <script>
     angular.module('app', []);
 
@@ -14,11 +15,28 @@
                 });
             }
             $scope.post = function(){
-                $http.post('http://127.0.0.1:5000/login', "hello this is from index.html")
+                $http.post('http://127.0.0.1:5000/login', {"hello":"daniel"})
                 .then(function (result) {
-                    alert(result.data);
+                    alert(JSON.stringify(result.data));
                 });
             }
+            // $scope.post2 =  function(){
+                // $http({
+                //     method: 'POST',
+                //     url: "http://127.0.0.1:5000/login",
+                //     data: {"hello": "hello"},
+                //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                // })
+                // alert("hello");
+                // $http({
+                //     method: 'POST',
+                //     url: "http://127.0.0.1:5000/login",
+                //     data: $.param({fkey: "key"}),
+                //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                // }).then(function(result){
+                //     alert("I made it back");
+                // })
+            // }
 
         });
     </script>

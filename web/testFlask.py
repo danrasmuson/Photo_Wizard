@@ -1,6 +1,6 @@
 # for the full tutorial visit this site
 # http://flask.pocoo.org/docs/quickstart
-from flask import Flask, url_for, request
+from flask import Flask, url_for, request, jsonify
 app = Flask(__name__)
 
 @app.route('/')
@@ -36,12 +36,13 @@ def printUrl():
 def login():
     if request.method == 'POST':
         # do_the_login()
-        result = ""
-        for k,v in request.form.items():
-            result += k+" "
+        # result = "
+        # for k,v in request.form.items():
+        #     result += k+" "
 
         #request.args.get('key', '')
-        return str(type(result.stream.read()))
+        # return request.form["hello"]
+        return jsonify(request.get_json(force=True))
     else:
         # show_the_login_form()
         return "you sent a get"
