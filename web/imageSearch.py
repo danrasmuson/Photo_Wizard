@@ -42,11 +42,10 @@ def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
                 savePath = "photos\\"+searchTerm+'.jpg'
                 myopener.retrieve(image['unescapedUrl'], "static\\"+savePath)
                 return savePath
-        # else:
-            # error.log("No Valid Sizes for Query: "+searchTerm+". Height: "+str(height)+" Width: "+str(width))
-    # else:
-        # error.log("No Results for Query: "+searchTerm)
+        else:
+            error.log("No Valid Sizes for Query: "+searchTerm+". Height: "+str(height)+" Width: "+str(width))
+    else:
+        error.log("No Results for Query: "+searchTerm)
 
-
-        # Sleep for one second to prevent IP blocking from Google
+    # Sleep for one second to prevent IP blocking from Google
     time.sleep(1)

@@ -2,7 +2,12 @@
 # http://flask.pocoo.org/docs/quickstart
 from flask import Flask, url_for, request, jsonify
 from imageSearch import getImageForTerm
+from Errors import Errors
 app = Flask(__name__)
+
+# this is a Global Object For Logging Errors
+error = Errors("static\\")
+
 
 @app.route('/')
 def index():
