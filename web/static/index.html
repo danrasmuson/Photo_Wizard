@@ -12,7 +12,11 @@
             $scope.getImage = function(query){
                 $http.post('http://127.0.0.1:5000/GetImage', {"query":query})
                 .then(function (result) {
-                    $scope.addImage(result.data);
+                    if (result.data === "404"){
+                        alert('image not found');
+                    } else{
+                        $scope.addImage(result.data);
+                    }
                 });
             }
             $scope.addImage = function(path){

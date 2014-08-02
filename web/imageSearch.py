@@ -11,6 +11,9 @@ from Errors import Errors
 #todo add controller for log file
 
 def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
+    # todo I dont know what I think of putting it here
+    error = Errors("static\\")
+
     # remove special chrs
     searchTerm = re.sub(r'\W|_', ' ', searchTerm) #searchTerm.replace(' ','%20')
 
@@ -44,8 +47,10 @@ def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
                 return savePath
         else:
             error.log("No Valid Sizes for Query: "+searchTerm+". Height: "+str(height)+" Width: "+str(width))
+            return "404"
     else:
         error.log("No Results for Query: "+searchTerm)
+        return "404"
 
     # Sleep for one second to prevent IP blocking from Google
     time.sleep(1)
