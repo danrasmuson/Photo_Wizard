@@ -7,10 +7,6 @@ app = Flask(__name__)
 def index():
     return 'Index Page'
 
-@app.route('/hello')
-def hello():
-    return 'Hello World'
-
 @app.route('/user/<username>')
 def show_user_profile(username):
     # show the user profile for that user
@@ -27,12 +23,7 @@ def show_post(post_id):
     # show the post with the given id, the id is an integer
     return 'Post %d' % post_id
 
-@app.route('/urlPrint')
-def printUrl():
-    # using the function names
-    return url_for("hello")
-
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/GetImage', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         # request.args.get('key', '')

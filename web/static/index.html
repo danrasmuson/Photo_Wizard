@@ -8,13 +8,13 @@
     angular.module('app')
         .controller('BodyController', function($scope, $http) {
             $scope.get = function(){
-                $http.get('http://127.0.0.1:5000/login')
+                $http.get('http://127.0.0.1:5000/GetImage')
                 .then(function (result) {
                     alert(result.data);
                 });
             }
             $scope.post = function(){
-                $http.post('http://127.0.0.1:5000/login', {"query":"orange"})
+                $http.post('http://127.0.0.1:5000/GetImage', {"query":"orange"})
                 .then(function (result) {
                     alert(JSON.stringify(result.data));
                 });
