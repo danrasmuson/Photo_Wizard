@@ -7,13 +7,13 @@
     angular.module('app', []);
 
     angular.module('app')
-        .controller('ImagesController', function($scope, $http) {
+        .controller('ImagesController', function($scope, $http, $rootScope) {
             $scope.images = [];
             $scope.getImage = function(query){
                 $http.post('http://127.0.0.1:5000/GetImage', {"query":query})
                 .then(function (result) {
                     if (result.data === "404"){
-                        alert('image not found');
+                        $rootScope.$broadcast('error', 'No Results For Query: '+query);
                     } else{
                         $scope.addImage(result.data);
                     }
@@ -35,6 +35,9 @@
             $scope.addError = function(message){
                 $scope.errors.push(message);
             }
+            $scope.$on('error', function(event, message) {
+                $scope.addError(message)
+            });
         });
     </script>
     <style>
