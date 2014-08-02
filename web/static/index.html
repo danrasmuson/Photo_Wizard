@@ -2,7 +2,6 @@
 <html ng-app="app">
   <head>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
     <script>
     angular.module('app', []);
 
@@ -24,7 +23,14 @@
     </script>
   </head>
   <body ng-controller="BodyController">
-    <button ng-click="get()">get</button>
-    <button ng-click="post()">post</button>
+<!--     <button ng-click="get()">get</button>
+    <button ng-click="post()">post</button> -->
+    Min Width: <input id="minWidth" type="text"><br>
+    Max Width: <input id="maxWidth" type="text"><br>
+    Min Height: <input id="minHeight" type="text"><br>
+    Max Height: <input id="maxHeight" type="text"><br>
+    <br>
+    List one query per line.<br>
+    <textarea id="queries" cols="30" rows="10"></textarea>
   </body>
 </html>
