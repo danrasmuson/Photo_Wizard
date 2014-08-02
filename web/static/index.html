@@ -1,6 +1,7 @@
 <!doctype html>
 <html ng-app="app">
   <head>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
     <script>
     angular.module('app', []);
@@ -26,24 +27,30 @@
         });
     </script>
     <style>
-    #imageList li img{
-        max-width: 150px;
-        max-height: 150px;
-    }
+        #options{
+            width: 400px;
+        } 
+        #imageList li img{
+            max-width: 150px;
+            max-height: 150px;
+        }
+        #imageList{
+            
+        }
     </style>
   </head>
   <body ng-controller="BodyController">
-    <div id="options">
+    <div id="options" class="span4">
         Min Width: <input id="minWidth" type="text"><br>
         Max Width: <input id="maxWidth" type="text"><br>
         Min Height: <input id="minHeight" type="text"><br>
         Max Height: <input id="maxHeight" type="text"><br>
         <br>
         List one query per line.<br>
-        <textarea id="queries" cols="30" rows="10"></textarea>
+        <textarea id="queries" cols="30" rows="10"></textarea><br>
         <button ng-click="getImages()">Get Images</button>
     </div>
-    <ul id="imageList">
+    <ul id="imageList" class="span4">
         <!-- <li ng-repeat="image in images"><img src="{{image}}" alt=""></li> -->
         <li ng-repeat="image in images"><img src="{{image}}" alt=""></li>
         <!-- <li><img src="orange.jpg" alt=""></li> -->

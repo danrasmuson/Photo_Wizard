@@ -51,20 +51,3 @@ def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
 
         # Sleep for one second to prevent IP blocking from Google
     time.sleep(1)
-
-# def getQueries(path):
-#     textFile = open(path,"r")
-#     queries = textFile.readlines()
-#     for i in range(len(queries)):
-#         queries[i] = queries[i].strip()
-#     textFile.close()
-#     return queries
-
-# error = Errors()
-
-# for query in getQueries("imagesToGet.csv"): 
-# getImagesForTerm(query)
-
-# getImagesForTerm("10293020idlfsdjfl34", 1)
-
-# error.close()
