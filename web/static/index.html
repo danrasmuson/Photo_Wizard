@@ -27,7 +27,7 @@
         });
     angular.module('app')
         .controller('ErrorController', function($scope) {
-            $scope.errors = ["this is an error"];
+            $scope.errors = "errors.txt";
         });
     </script>
     <style>
@@ -68,9 +68,11 @@
     </div>
     <div id='errors' class="span4" ng-controller="ErrorController">
         <h4>Errors</h4>
-        <ul>
+        <div ng-include="errors"></div>
+<!--         <ul>
             <li ng-repeat="error in errors">{{error}}</li>
         </ul>
+ -->    
     </div>
   </body>
 </html>

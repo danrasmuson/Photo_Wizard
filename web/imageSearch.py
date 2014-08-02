@@ -5,7 +5,7 @@ from urllib import FancyURLopener
 import urllib2
 import simplejson
 import re
-# from Errors import Errors
+from Errors import Errors
 #todo add support for dimensions
 #todo add support for refreshing image or choosing image
 #todo add controller for log file
