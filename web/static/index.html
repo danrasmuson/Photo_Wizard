@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script>
+    angular.module('app', []);
+
+    angular.module('app')
+        .controller('BodyController', function($scope, $http) {
+            $scope.hello = 'Hi';
+            // $scope.header = 'test.py';
+            // $scope.python = function(){
+            //     $http({
+            //         url: 'request-url',
+            //         method: "POST",
+            //         data: { 'message' : "herro sir!kk"}
+            //     }).then(function(result){
+            //         alert("daniel");
+            //     });
+            //     // alert("hello");
+            // }
+            $scope.get = function(){
+                $http.get('http://127.0.0.1:5000/login')
+                .then(function (result) {
+                    alert(result.data);
+                });
+            }
+            $scope.post = function(){
+                $http.post('http://127.0.0.1:5000/login')
+                .then(function (result) {
+                    alert(result.data);
+                });
+            }
+
+        });
+    </script>
+  </head>
+  <body ng-controller="BodyController">
+  {{hello}}
+  <!-- <div ng-include="header"></div> -->
+  <!-- <div ngClick="python()" style="background-color: red;">{{hello}}how are you?</div> -->
+      <!-- <button ngclick="python()">hello</button> -->
+    <button ng-click="get()">get</button>
+    <button ng-click="post()">post</button>
+  </body>
+</html>
