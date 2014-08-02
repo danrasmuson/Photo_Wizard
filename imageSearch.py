@@ -75,7 +75,7 @@ def getQueries(path):
 
 error = Errors()
 
-for query in getQueries("wineNames.txt"): 
+for query in getQueries("getImagesList.txt"): 
     getImagesForTerm(query)
 
 # getImagesForTerm("10293020idlfsdjfl34", 1)
