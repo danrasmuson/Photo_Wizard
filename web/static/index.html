@@ -14,7 +14,7 @@
                 });
             }
             $scope.post = function(){
-                $http.post('http://127.0.0.1:5000/login')
+                $http.post('http://127.0.0.1:5000/login', "hello this is from index.html")
                 .then(function (result) {
                     alert(result.data);
                 });
