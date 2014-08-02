@@ -15,29 +15,11 @@
                 });
             }
             $scope.post = function(){
-                $http.post('http://127.0.0.1:5000/login', {"hello":"daniel"})
+                $http.post('http://127.0.0.1:5000/login', {"query":"orange"})
                 .then(function (result) {
                     alert(JSON.stringify(result.data));
                 });
             }
-            // $scope.post2 =  function(){
-                // $http({
-                //     method: 'POST',
-                //     url: "http://127.0.0.1:5000/login",
-                //     data: {"hello": "hello"},
-                //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                // })
-                // alert("hello");
-                // $http({
-                //     method: 'POST',
-                //     url: "http://127.0.0.1:5000/login",
-                //     data: $.param({fkey: "key"}),
-                //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                // }).then(function(result){
-                //     alert("I made it back");
-                // })
-            // }
-
         });
     </script>
   </head>

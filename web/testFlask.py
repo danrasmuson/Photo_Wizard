@@ -35,14 +35,9 @@ def printUrl():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        # do_the_login()
-        # result = "
-        # for k,v in request.form.items():
-        #     result += k+" "
-
-        #request.args.get('key', '')
+        # request.args.get('key', '')
         # return request.form["hello"]
-        return jsonify(request.get_json(force=True))
+        return request.get_json(force=True)["query"]
     else:
         # show_the_login_form()
         return "you sent a get"
