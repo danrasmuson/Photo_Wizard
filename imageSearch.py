@@ -5,19 +5,10 @@ from urllib import FancyURLopener
 import urllib2
 import simplejson
 import re
-
+from Errors import Errors
 #todo add support for dimensions
 #todo add support for refreshing image or choosing image
 #todo add controller for log file
-class Errors(object):
-    """A way to log errors to the system"""
-    def __init__(self):
-        self.file = open("errors.txt","w")
-    def close(self):
-        self.file.close()
-    def log(self, message):
-        print message
-        self.file.write(message)
 
 def getImagesForTerm(searchTerm):
     # print searchTerm
@@ -42,13 +33,6 @@ def getImagesForTerm(searchTerm):
     data = results['responseData']
     dataInfo = data['results']
 
-    #just nameing the file the same as the search term
-    # saveFileName = searchTerm.replace(" ","_")
-    # saveFileName = saveFileName.replace("__","_")
-    # saveFileName = saveFileName.strip("_")
-
-    # print(dataInfo)
-
     #todo - add photos to folder
     #TODO - error handleing for if filename already exist - just overwrites at moment
     if len(dataInfo) >= 1:
@@ -70,12 +54,14 @@ def getImagesForTerm(searchTerm):
 def getQueries(path):
     textFile = open(path,"r")
     queries = textFile.readlines()
+    for i in range(len(queries)):
+        queries[i] = queries[i].strip()
     textFile.close()
     return queries
 
 error = Errors()
 
-for query in getQueries("getImagesList.txt"): 
+for query in getQueries("imagesToGet.csv"): 
     getImagesForTerm(query)
 
 # getImagesForTerm("10293020idlfsdjfl34", 1)
