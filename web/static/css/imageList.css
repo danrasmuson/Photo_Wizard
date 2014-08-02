@@ -1,0 +1,7 @@
+#options{
+    width: 400px;
+} 
+#imageList li img{
+    max-width: 150px;
+    max-height: 150px;
+}

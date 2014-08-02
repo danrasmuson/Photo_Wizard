@@ -1,0 +1,7 @@
+#errors{
+    background-color:#A8A8A8;
+    min-height: 300px;
+}
+#errors ul li{
+    color: red;
+}
