@@ -7,7 +7,7 @@
     angular.module('app', []);
 
     angular.module('app')
-        .controller('BodyController', function($scope, $http) {
+        .controller('ImagesController', function($scope, $http) {
             $scope.images = [];
             $scope.getImage = function(query){
                 $http.post('http://127.0.0.1:5000/GetImage', {"query":query})
@@ -31,7 +31,10 @@
         });
     angular.module('app')
         .controller('ErrorController', function($scope) {
-            $scope.errors = "errors.txt";
+            $scope.errors = [];
+            $scope.addError = function(message){
+                $scope.errors.push(message);
+            }
         });
     </script>
     <style>
@@ -52,7 +55,7 @@
     </style>
   </head>
   <body>
-    <div ng-controller="BodyController">
+    <div ng-controller="ImagesController">
         <div id="options" class="span4">
             Min Width: <input id="minWidth" type="text"><br>
             Max Width: <input id="maxWidth" type="text"><br>
@@ -72,11 +75,10 @@
     </div>
     <div id='errors' class="span4" ng-controller="ErrorController">
         <h4>Errors</h4>
-        <div ng-include="errors"></div>
-<!--         <ul>
+        <ul>
             <li ng-repeat="error in errors">{{error}}</li>
         </ul>
- -->    
+    
     </div>
   </body>
 </html>

@@ -5,15 +5,11 @@ from urllib import FancyURLopener
 import urllib2
 import simplejson
 import re
-from Errors import Errors
 #todo add support for dimensions
 #todo add support for refreshing image or choosing image
 #todo add controller for log file
 
 def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
-    # todo I dont know what I think of putting it here
-    error = Errors("static\\")
-
     # remove special chrs
     searchTerm = re.sub(r'\W|_', ' ', searchTerm) #searchTerm.replace(' ','%20')
 
@@ -36,7 +32,6 @@ def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
     dataInfo = data['results']
 
     #todo - add photos to folder
-    #TODO - error handleing for if filename already exist - just overwrites at moment
     if len(dataInfo) >= 1:
         for image in dataInfo:
             height = image["height"]
@@ -46,10 +41,10 @@ def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
                 myopener.retrieve(image['unescapedUrl'], "static\\"+savePath)
                 return savePath
         else:
-            error.log("No Valid Sizes for Query: "+searchTerm+". Height: "+str(height)+" Width: "+str(width))
-            return "404"
+            # no items of correct size
+            return "400"
     else:
-        error.log("No Results for Query: "+searchTerm)
+        # no query results found
         return "404"
 
     # Sleep for one second to prevent IP blocking from Google
