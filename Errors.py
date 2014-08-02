@@ -1,4 +1,4 @@
-class Errors(object):
+class Errors():
     """A way to log errors to the system"""
     def __init__(self):
         self.file = open("errors.txt","w")
