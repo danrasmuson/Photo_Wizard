@@ -50,10 +50,13 @@
         <textarea id="queries" cols="30" rows="10"></textarea><br>
         <button ng-click="getImages()">Get Images</button>
     </div>
-    <ul id="imageList" class="span4">
-        <!-- <li ng-repeat="image in images"><img src="{{image}}" alt=""></li> -->
-        <li ng-repeat="image in images"><img src="{{image}}" alt=""></li>
-        <!-- <li><img src="orange.jpg" alt=""></li> -->
-    </ul> 
+    <div class="span4" id="imageList">
+        <button>Download Images</button>
+        <ul>
+            <!-- <li ng-repeat="image in images"><img src="{{image}}" alt=""></li> -->
+            <li ng-repeat="image in images"><img src="{{image}}" alt=""></li>
+            <!-- <li><img src="orange.jpg" alt=""></li> -->
+        </ul>
+    </div> 
   </body>
 </html>
