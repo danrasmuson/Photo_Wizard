@@ -7,31 +7,46 @@
 
     angular.module('app')
         .controller('BodyController', function($scope, $http) {
-            $scope.get = function(){
-                $http.get('http://127.0.0.1:5000/GetImage')
+            $scope.images = [];
+            $scope.getImage = function(query){
+                $http.post('http://127.0.0.1:5000/GetImage', {"query":query})
                 .then(function (result) {
-                    alert(result.data);
+                    $scope.addImage(result.data);
                 });
             }
-            $scope.post = function(){
-                $http.post('http://127.0.0.1:5000/GetImage', {"query":"orange"})
-                .then(function (result) {
-                    alert(result.data);
-                });
+            $scope.addImage = function(path){
+                $scope.images.push(path);
+            }
+            $scope.getImages = function(){
+                var queries = document.getElementById('queries').value.split("\n");
+                for (var i = 0; i < queries.length; i++) {
+                    $scope.getImage(queries[i]);
+                }
             }
         });
     </script>
+    <style>
+    #imageList li img{
+        max-width: 150px;
+        max-height: 150px;
+    }
+    </style>
   </head>
   <body ng-controller="BodyController">
-<!--     <button ng-click="get()">get</button>
-    <button ng-click="post()">post</button> -->
-    Min Width: <input id="minWidth" type="text"><br>
-    Max Width: <input id="maxWidth" type="text"><br>
-    Min Height: <input id="minHeight" type="text"><br>
-    Max Height: <input id="maxHeight" type="text"><br>
-    <br>
-    List one query per line.<br>
-    <textarea id="queries" cols="30" rows="10"></textarea>
-    <button ng-click="post()">post</button>
+    <div id="options">
+        Min Width: <input id="minWidth" type="text"><br>
+        Max Width: <input id="maxWidth" type="text"><br>
+        Min Height: <input id="minHeight" type="text"><br>
+        Max Height: <input id="maxHeight" type="text"><br>
+        <br>
+        List one query per line.<br>
+        <textarea id="queries" cols="30" rows="10"></textarea>
+        <button ng-click="getImages()">Get Images</button>
+    </div>
+    <ul id="imageList">
+        <!-- <li ng-repeat="image in images"><img src="{{image}}" alt=""></li> -->
+        <li ng-repeat="image in images"><img src="{{image}}" alt=""></li>
+        <!-- <li><img src="orange.jpg" alt=""></li> -->
+    </ul> 
   </body>
 </html>

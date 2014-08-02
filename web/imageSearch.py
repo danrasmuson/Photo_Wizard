@@ -40,8 +40,8 @@ def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
             height = image["height"]
             width = image["width"]
             if minHeight < int(height) and minWidth < int(width):
-                savePath = os.getcwd()+"\\photos\\"+searchTerm+'.jpg'
-                myopener.retrieve(image['unescapedUrl'], savePath)
+                savePath = "photos\\"+searchTerm+'.jpg'
+                myopener.retrieve(image['unescapedUrl'], "static\\"+savePath)
                 return savePath
         # else:
             # error.log("No Valid Sizes for Query: "+searchTerm+". Height: "+str(height)+" Width: "+str(width))
