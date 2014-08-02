@@ -1,38 +1,17 @@
 <!doctype html>
 <html ng-app="app">
-  <head>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/imageList.css">
-    <link rel="stylesheet" href="css/error.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-    <script>angular.module('app', []);</script>
-    <script type="text/javascript" src="controller/ErrorController.js"></script>
-    <script type="text/javascript" src="controller/ImagesController.js"></script>
-  </head>
-  <body>
-    <div ng-controller="ImagesController">
-        <div id="options" class="span4">
-            Min Width: <input id="minWidth" type="text"><br>
-            Max Width: <input id="maxWidth" type="text"><br>
-            Min Height: <input id="minHeight" type="text"><br>
-            Max Height: <input id="maxHeight" type="text"><br>
-            <br>
-            List one query per line.<br>
-            <textarea id="queries" cols="30" rows="10"></textarea><br>
-            <button ng-click="getImages()">Get Images</button>
-        </div>
-        <div class="span4" id="imageList">
-            <button>Download Images</button>
-            <ul>
-                <li ng-repeat="image in images"><img src="{{image}}" alt=""></li>
-            </ul>
-        </div> 
-    </div>
-    <div id='errors' class="span4" ng-controller="ErrorController">
-        <h4>Errors</h4>
-        <ul>
-            <li ng-repeat="error in errors">{{error}}</li>
-        </ul>
-    </div>
-  </body>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+        <!-- <script>angular.module('app', []);</script> -->
+        <script type="text/javascript" src="controller/main.js"></script>
+        <script type="text/javascript" src="controller/ErrorController.js"></script>
+        <script type="text/javascript" src="controller/ImagesController.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/imageList.css">
+        <link rel="stylesheet" href="css/error.css">
+    </head>
+    <body ng-controller="PageController">
+        <div ng-include="imageTemplate"></div> 
+        <div ng-include="errorTemplate"></div> 
+    </body>
 </html>
