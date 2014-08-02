@@ -11,9 +11,8 @@ import re
 #todo add controller for log file
 
 def getImageForTerm(searchTerm, minHeight=300, minWidth=300):
-    # print searchTerm
+    # remove special chrs
     searchTerm = re.sub(r'\W|_', ' ', searchTerm) #searchTerm.replace(' ','%20')
-    # print searchTerm
 
     # Start FancyURLopener with defined version 
     class MyOpener(FancyURLopener): 

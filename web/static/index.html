@@ -25,6 +25,10 @@
                 }
             }
         });
+    angular.module('app')
+        .controller('ErrorController', function($scope) {
+            $scope.errors = ["this is an error"];
+        });
     </script>
     <style>
         #options{
@@ -34,29 +38,39 @@
             max-width: 150px;
             max-height: 150px;
         }
-        #imageList{
-            
+        #errors{
+            background-color:#A8A8A8;
+            min-height: 300px;
+        }
+        #errors ul li{
+            color: red;
         }
     </style>
   </head>
-  <body ng-controller="BodyController">
-    <div id="options" class="span4">
-        Min Width: <input id="minWidth" type="text"><br>
-        Max Width: <input id="maxWidth" type="text"><br>
-        Min Height: <input id="minHeight" type="text"><br>
-        Max Height: <input id="maxHeight" type="text"><br>
-        <br>
-        List one query per line.<br>
-        <textarea id="queries" cols="30" rows="10"></textarea><br>
-        <button ng-click="getImages()">Get Images</button>
+  <body>
+    <div ng-controller="BodyController">
+        <div id="options" class="span4">
+            Min Width: <input id="minWidth" type="text"><br>
+            Max Width: <input id="maxWidth" type="text"><br>
+            Min Height: <input id="minHeight" type="text"><br>
+            Max Height: <input id="maxHeight" type="text"><br>
+            <br>
+            List one query per line.<br>
+            <textarea id="queries" cols="30" rows="10"></textarea><br>
+            <button ng-click="getImages()">Get Images</button>
+        </div>
+        <div class="span4" id="imageList">
+            <button>Download Images</button>
+            <ul>
+                <li ng-repeat="image in images"><img src="{{image}}" alt=""></li>
+            </ul>
+        </div> 
     </div>
-    <div class="span4" id="imageList">
-        <button>Download Images</button>
+    <div id='errors' class="span4" ng-controller="ErrorController">
+        <h4>Errors</h4>
         <ul>
-            <!-- <li ng-repeat="image in images"><img src="{{image}}" alt=""></li> -->
-            <li ng-repeat="image in images"><img src="{{image}}" alt=""></li>
-            <!-- <li><img src="orange.jpg" alt=""></li> -->
+            <li ng-repeat="error in errors">{{error}}</li>
         </ul>
-    </div> 
+    </div>
   </body>
 </html>
